@@ -40,7 +40,7 @@ namespace TheContent.Services.Mocks
                 Id = "",
             };
 
-        public class CodeOfConductService
+        public class CodeOfConductService : ICodeOfConductService
         {
             public Task<CodeOfConduct> GetByEventId(string id)
             {
@@ -72,9 +72,14 @@ namespace TheContent.Services.Mocks
             }
         }
 
-        public class PersonService : IOrganizerService
+        public class PersonService : IPersonService
         {
-            public Task<List<Organizer>> GetByEventId(string id)
+            public Task<List<Person>> GetByEventId(string id)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task<Person> GetById(string personId)
             {
                 throw new NotImplementedException();
             }
@@ -112,15 +117,15 @@ namespace TheContent.Services.Mocks
             }
         }
 
-        public class TicketService : ITicketService
+        public class SponsorshipTier : ISponsorshipTier
         {
-            public Task<List<Ticket>> GetByEventId(string id)
+            public Task<SponsorshipTier> GetBySponsorId(string id)
             {
                 throw new NotImplementedException();
             }
         }
 
-        public class ContentService
+        public class ContentService : IContentService
         {
             public Task<Content> GetById(string contentId)
             {
@@ -139,6 +144,14 @@ namespace TheContent.Services.Mocks
         public class OrganizerService : IOrganizerService
         {
             public Task<List<Organizer>> GetByEventId(string id)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class TicketService : ITicketService
+        {
+            public Task<List<Ticket>> GetByEventId(string id)
             {
                 throw new NotImplementedException();
             }

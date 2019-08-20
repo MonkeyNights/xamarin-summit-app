@@ -24,7 +24,7 @@ namespace TheContent.Schema.Types
             Field(e => e.TicketsUrl);
             Field(e => e.Call4PapersUrl);
 
-            Field<EventDayType>("days"
+            Field<ListGraphType<EventDayType>>("days"
                 , resolve: ctx => eventDays.GetByEventId(ctx.Source.Id));
 
             Field<LocationType>("location"

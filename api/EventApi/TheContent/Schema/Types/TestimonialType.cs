@@ -1,5 +1,6 @@
 ﻿using GraphQL.Types;
 using TheContent.Models;
+using TheContent.Services;
 
 namespace TheContent.Schema.Types
 {

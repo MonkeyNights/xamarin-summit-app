@@ -43,6 +43,7 @@ namespace TheContent
             builder.Services.AddScoped<ISponsorService, XamarinSummitAllServicesMock.SponsorService>();
             builder.Services.AddScoped<ITestimonialService, XamarinSummitAllServicesMock.TestimonialService>();
             builder.Services.AddScoped<ITicketService, XamarinSummitAllServicesMock.TicketService>();
+            builder.Services.AddScoped<ISponsorshipTier, XamarinSummitAllServicesMock.SponsorshipTier>();
 
         }
 

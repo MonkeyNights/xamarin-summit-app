@@ -28,4 +28,7 @@
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Services\Mocks\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\Interfaces\ISponsorshipTier.cs" />
+  </ItemGroup>
 </Project>
