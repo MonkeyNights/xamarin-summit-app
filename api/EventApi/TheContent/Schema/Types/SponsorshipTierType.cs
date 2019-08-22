@@ -8,9 +8,9 @@ namespace TheContent.Schema.Types
     {
         public SponsorshipTierType()
         {
+            Field(e => e.Id);
             Field(e => e.Name);
             Field(e => e.OrderOfImportance);
-            Field(e => e.SponsorId);
         }
     }
 }

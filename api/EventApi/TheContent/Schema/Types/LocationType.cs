@@ -12,7 +12,8 @@ namespace TheContent.Schema.Types
             Field(e => e.Description);
             Field(e => e.Address);
             Field(e => e.ZipCode);
-            Field(e => e.EventId);
+            Field(e => e.City);
+            Field(e => e.State);
         }
     }
 }

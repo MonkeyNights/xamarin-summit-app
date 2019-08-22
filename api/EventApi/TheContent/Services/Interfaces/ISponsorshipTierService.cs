@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using TheContent.Models;
 
 namespace TheContent.Services
 {
-    public interface IEventService
+    public interface ISponsorshipTierService
     {
-        Task<List<Event>> GetAll();
-        Task<Event> GetById(string id);
+        Task<SponsorshipTier> GetById(string id);
     }
 }

@@ -1,57 +1,58 @@
-﻿using System;
-using GraphQL;
-using GraphQL.Http;
+﻿using GraphQL;
 using GraphQL.Server;
-using GraphQL.Server.Internal;
-using GraphQL.Types;
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using GraphQL.Server.Ui.Playground;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using TheContent.Schema;
 using TheContent.Schema.Queries;
-using TheContent.Schema.Types;
 using TheContent.Services;
 using TheContent.Services.Mocks;
 
-[assembly: FunctionsStartup(typeof(TheContent.Startup))]
 namespace TheContent
 {
-    public class Startup : FunctionsStartup
+    public class Startup
     {
-        public override void Configure(IFunctionsHostBuilder builder)
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
         {
-            ConfigureGraphQL(builder);
-            ConfigureDependencies(builder);
+            services.AddScoped<IDependencyResolver>(serviceProvider => new FuncDependencyResolver(serviceProvider.GetRequiredService));
+
+            services.AddScoped<EventsSchema>();
+            services.AddScoped<EventsQuery>();
+
+            services.AddGraphQL(options => {
+                options.ExposeExceptions = true;
+            }).AddGraphTypes(ServiceLifetime.Scoped);
+
+            services.AddTransient<ICodeOfConductService, XamarinSummitAllServicesMock.CodeOfConductService>();
+            services.AddTransient<IContentService, XamarinSummitAllServicesMock.ContentService>();
+            services.AddTransient<IEventDayService, XamarinSummitAllServicesMock.EventDayService>();
+            services.AddTransient<IEventService, XamarinSummitAllServicesMock.EventService>();
+            services.AddTransient<IFaqService, XamarinSummitAllServicesMock.FaqService>();
+            services.AddTransient<ILocationService, XamarinSummitAllServicesMock.LocationService>();
+            services.AddTransient<IOrganizerService, XamarinSummitAllServicesMock.OrganizerService>();
+            services.AddTransient<IPersonService, XamarinSummitAllServicesMock.PersonService>();
+            services.AddTransient<ISocialProfileService, XamarinSummitAllServicesMock.SocialProfileService>();
+            services.AddTransient<ISpeakerService, XamarinSummitAllServicesMock.SpeakerService>();
+            services.AddTransient<ISponsorService, XamarinSummitAllServicesMock.SponsorService>();
+            services.AddTransient<ITestimonialService, XamarinSummitAllServicesMock.TestimonialService>();
+            services.AddTransient<ITicketService, XamarinSummitAllServicesMock.TicketService>();
+            services.AddTransient<ISponsorshipTierService, XamarinSummitAllServicesMock.SponsorshipTierService>();
+            services.AddTransient<ITalkService, XamarinSummitAllServicesMock.TalkService>();
         }
 
-        private void ConfigureDependencies(IFunctionsHostBuilder builder)
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            builder.Services.AddScoped<IDependencyResolver>(serviceProvider => new FuncDependencyResolver(serviceProvider.GetRequiredService));
-            builder.Services.AddSingleton<IDocumentExecuter>(new DocumentExecuter());
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
+            }
 
-            builder.Services.AddScoped<EventsSchema>();
-
-            builder.Services.AddScoped<ICodeOfConductService, XamarinSummitAllServicesMock.CodeOfConductService>();
-            builder.Services.AddScoped<IContentService, XamarinSummitAllServicesMock.ContentService>();
-            builder.Services.AddScoped<IEventDayService, XamarinSummitAllServicesMock.EventDayService>();
-            builder.Services.AddScoped<IEventService, XamarinSummitAllServicesMock.EventService>();
-            builder.Services.AddScoped<IFaqService, XamarinSummitAllServicesMock.FaqService>();
-            builder.Services.AddScoped<ILocationService, XamarinSummitAllServicesMock.LocationService>();
-            builder.Services.AddScoped<IOrganizerService, XamarinSummitAllServicesMock.OrganizerService>();
-            builder.Services.AddScoped<IPersonService, XamarinSummitAllServicesMock.PersonService>();
-            builder.Services.AddScoped<ISocialProfileService, XamarinSummitAllServicesMock.SocialProfileService>();
-            builder.Services.AddScoped<ISpeakerService, XamarinSummitAllServicesMock.SpeakerService>();
-            builder.Services.AddScoped<ISponsorService, XamarinSummitAllServicesMock.SponsorService>();
-            builder.Services.AddScoped<ITestimonialService, XamarinSummitAllServicesMock.TestimonialService>();
-            builder.Services.AddScoped<ITicketService, XamarinSummitAllServicesMock.TicketService>();
-            builder.Services.AddScoped<ISponsorshipTier, XamarinSummitAllServicesMock.SponsorshipTier>();
-
-        }
-
-        private void ConfigureGraphQL(IFunctionsHostBuilder builder)
-        {
-            builder.Services.AddGraphQL(options => { options.ExposeExceptions = true; })
-            .AddGraphTypes(ServiceLifetime.Scoped)
-            .AddDataLoader();
+            app.UseGraphQL<EventsSchema>();
         }
     }
 }

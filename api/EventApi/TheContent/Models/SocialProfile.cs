@@ -7,5 +7,6 @@
         public string FacebookUrl { get; set; }
         public string LinkedinUrl { get; set; }
         public string YoutubeUrl { get; set; }
+        public string InstagramUrl { get; set; }
     }
 }
