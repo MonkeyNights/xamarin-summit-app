@@ -1,35 +1,52 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using EventApp.XamarinSummit.Services;
+﻿using Xamarin.Forms;
 using EventApp.XamarinSummit.Views;
+using Prism.DryIoc;
+using Prism;
+using Prism.Ioc;
+using EventApp.XamarinSummit.ViewModels;
+using EventApp.XamarinSummit.Factories;
+using EventApp.XamarinSummit.Services;
+using EventApp.XamarinSummit.Repositories;
 
 namespace EventApp.XamarinSummit
 {
-    public partial class App : Application
+    public partial class App : PrismApplication
     {
-
         public App()
+            : this(null) { }
+
+        public App(IPlatformInitializer platformInitializer)
+            : base(platformInitializer) { }
+
+        public App(IPlatformInitializer platformInitializer, bool setFormsDependencyResolver)
+            : base(platformInitializer, setFormsDependencyResolver) { }
+
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            await NavigationService
+                .NavigateAsync($"{nameof(NavigationPage)}/{nameof(HomePage)}");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            // Handle when your app starts
+            RegisterPages(containerRegistry);
+            RegisterServices(containerRegistry);
         }
 
-        protected override void OnSleep()
+        private void RegisterPages(IContainerRegistry containerRegistry)
         {
-            // Handle when your app sleeps
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
         }
 
-        protected override void OnResume()
+        private void RegisterServices(IContainerRegistry containerRegistry)
         {
-            // Handle when your app resumes
+            containerRegistry.RegisterInstance(HttpClientFactory.CreateClient());
+            containerRegistry.RegisterInstance(RepositoryFactory.For<IEventRepository>(Container));
+
+            containerRegistry.Register<IEventService, EventService>();
         }
     }
 }

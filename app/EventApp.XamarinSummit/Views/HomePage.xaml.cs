@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace EventApp.XamarinSummit
+namespace EventApp.XamarinSummit.Views
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class HomePage : ContentPage
     {
-        public AppShell()
+        public HomePage()
         {
             InitializeComponent();
         }
