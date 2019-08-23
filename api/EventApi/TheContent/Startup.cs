@@ -22,7 +22,8 @@ namespace TheContent
             services.AddScoped<EventsSchema>();
             services.AddScoped<EventsQuery>();
 
-            services.AddGraphQL(options => {
+            services.AddGraphQL(options =>
+            {
                 options.ExposeExceptions = true;
             }).AddGraphTypes(ServiceLifetime.Scoped);
 
@@ -49,9 +50,10 @@ namespace TheContent
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
+
             }
 
+            app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
             app.UseGraphQL<EventsSchema>();
         }
     }
