@@ -15,9 +15,5 @@ namespace EventApp.XamarinSummit.ViewModels
             this.eventService = eventService;
         }
 
-        public override async Task InitializeAsync(INavigationParameters parameters)
-        {
-            var details = await eventService.Details();
-        }
     }
 }
