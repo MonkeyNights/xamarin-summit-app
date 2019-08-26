@@ -5,12 +5,10 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     prism:ViewModelLocator.AutowireViewModel="True"
     x:Class="EventApp.XamarinSummit.Views.HomePage"
-    xmlns:models="clr-namespace:EventApp.XamarinSummit.Models;assembly=EventApp.XamarinSummit"
-    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:templates="clr-namespace:EventApp.XamarinSummit.Views.ControlTemplates"
     BackgroundColor="#FFF"
     NavigationPage.HasNavigationBar="False"
-    Title="Xamarin Summit 2019">
+    Title="Feed">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS"
@@ -26,13 +24,15 @@
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:SpeakersContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:ActionContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:TicketsContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:LocationContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
-                <Label Text="About this version"
+                <Label Text="About this version?"
                        TextColor="#666"
-                       Margin="32, 0, 32, 16"
+                       Margin="32, 0, 32, 32"
                        Style="{StaticResource labelCommonStyle}" />
             </StackLayout>
         </ScrollView>

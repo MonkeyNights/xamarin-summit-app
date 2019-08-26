@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:EventApp.XamarinSummit.Models"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="EventApp.XamarinSummit.Views.ControlTemplates.ActionContentView">
+    <ContentView.Content>
+        <StackLayout>
+            <!-- speakers -->
+            <Label Text="SOBRE O EVENTO"
+                   Style="{StaticResource labelTitleStyle}" />
+            <Label Text="O maior encontro de desenvolvedores #Xamarin da América Latina"
+                   Style="{StaticResource labelCommonStyle}" />
+            <CollectionView
+                ItemSizingStrategy="MeasureAllItems"
+                Margin="24, 0, 24, 0"
+                HeightRequest="120">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Agenda</x:String>
+                        <x:String>Patrocínio</x:String>
+                        <x:String>FAQ</x:String>
+                        <x:String>Código de Conduta</x:String>
+                        <x:String>Organização</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemsLayout>
+                    <ListItemsLayout
+                        ItemSpacing="0"
+                        Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="8, 16, 8, 0"
+                              WidthRequest="120">
+                            <yummy:PancakeView
+                                BackgroundColor="#e5e5e5"
+                                CornerRadius="12">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding .}"
+                                           Grid.Row="0"
+                                           TextColor="#000000"
+                                           Margin="16"
+                                           VerticalOptions="EndAndExpand"
+                                           LineBreakMode="WordWrap"
+                                           FontFamily="{StaticResource LatoRegular}"
+                                           FontSize="14" />
+                                </Grid>
+                            </yummy:PancakeView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
