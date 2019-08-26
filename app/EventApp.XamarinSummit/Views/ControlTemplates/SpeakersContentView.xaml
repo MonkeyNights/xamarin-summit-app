@@ -14,7 +14,7 @@
                    Style="{StaticResource labelCommonStyle}" />
             <CollectionView
                 ItemSizingStrategy="MeasureAllItems"
-                Margin="24, 0, 24, 16"
+                Margin="24, 0, 24, 0"
                 HeightRequest="176">
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type models:Speaker}">
@@ -35,7 +35,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="8, 16, 8, 16"
+                        <Grid Padding="8, 16, 8, 0"
                               WidthRequest="170">
                             <yummy:PancakeView
                                 BackgroundColor="#FFF"

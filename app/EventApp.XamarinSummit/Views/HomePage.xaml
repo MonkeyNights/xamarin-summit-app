@@ -8,9 +8,9 @@
     xmlns:models="clr-namespace:EventApp.XamarinSummit.Models;assembly=EventApp.XamarinSummit"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:templates="clr-namespace:EventApp.XamarinSummit.Views.ControlTemplates"
-    BackgroundColor="#F5F5F5"
+    BackgroundColor="#FFF"
     NavigationPage.HasNavigationBar="False"
-    Title="Home">
+    Title="Xamarin Summit 2019">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS"
@@ -21,14 +21,19 @@
         <ScrollView>
             <StackLayout Spacing="0"
                          Padding="0">
+                <templates:HeaderContentView />
                 <templates:AboutEventContentView />
-                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
-                <templates:LocationContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:SpeakersContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:TicketsContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:LocationContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <Label Text="About this version"
+                       TextColor="#666"
+                       Margin="32, 0, 32, 16"
+                       Style="{StaticResource labelCommonStyle}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

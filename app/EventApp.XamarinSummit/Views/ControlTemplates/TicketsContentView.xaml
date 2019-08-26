@@ -14,6 +14,7 @@
                 Style="{StaticResource labelCommonStyle}" />
             <Button
                 HorizontalOptions="CenterAndExpand"
+                Margin="0, 16, 0, 0"
                 TextColor="#222"
                 BorderColor="#222"
                 CornerRadius="8"
@@ -24,7 +25,6 @@
                 BackgroundColor="Transparent"
                 FontSize="14"
                 Text="REGISTER NOW"
-                Grid.Row="3"
                 FontFamily="{StaticResource LatoRegular}" />
         </StackLayout>
     </ContentView.Content>

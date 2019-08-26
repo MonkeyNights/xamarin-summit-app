@@ -7,15 +7,15 @@
     <ContentView.Content>
         <StackLayout>
             <!-- header -->
-            <Label Text="Welcome to Xamarin Summit 2019"
+            <Label Text="Floripa 04 e 05 de Outubro"
                    Style="{StaticResource labelCommonStyle}"
                    FontSize="22"
                    FontAttributes="Bold"
                    Margin="32, 16, 32, 16" />
             <yummy:PancakeView WidthRequest="320"
-                               Margin="32, 0, 32, 16"
+                               Margin="32, 0, 32, 0"
                                CornerRadius="12">
-                <Image Source="https://xamarinsummit.com.br/cover.jpg"
+                <Image Source="https://xamarinsummit.com.br/assets/img/floripa_br.jpg"
                        Aspect="AspectFill" />
             </yummy:PancakeView>
             <Label

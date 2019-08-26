@@ -13,7 +13,7 @@
 na Rodovia José Carlos Daux (SC-401), 9301 - Km 10, Santo Antônio de Lisboa - Florianópolis - Santa Catarina"
                    Style="{StaticResource labelCommonStyle}" />
             <yummy:PancakeView WidthRequest="320"
-                               Margin="32, 16, 32, 16"
+                               Margin="32, 16, 32,0"
                                CornerRadius="12">
                 <Image Source="https://www.codeproject.com/KB/scripting/681361/map_screenshot2.png"
                        Aspect="AspectFill" />

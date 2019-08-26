@@ -27,9 +27,9 @@
             <Style x:Key="labelTitleStyle"
                    TargetType="Label">
                 <Setter Property="TextColor"
-                        Value="#222222" />
+                        Value="#000000" />
                 <Setter Property="Margin"
-                        Value="32, 0, 32, 16" />
+                        Value="32, 0, 32, 0" />
                 <Setter Property="HorizontalTextAlignment"
                         Value="Center" />
                 <Setter Property="HorizontalOptions"
@@ -47,9 +47,9 @@
             <Style x:Key="labelCommonStyle"
                    TargetType="Label">
                 <Setter Property="TextColor"
-                        Value="#000000" />
+                        Value="#222222" />
                 <Setter Property="Margin"
-                        Value="32, 0, 32, 16" />
+                        Value="32, 16, 32, 0" />
                 <Setter Property="HorizontalTextAlignment"
                         Value="Center" />
                 <Setter Property="HorizontalOptions"
@@ -65,7 +65,7 @@
             <Style x:Key="lineBoxCommonStyle"
                    TargetType="BoxView">
                 <Setter Property="Margin"
-                        Value="16" />
+                        Value="16, 32, 16, 32" />
                 <Setter Property="Color"
                         Value="#222" />
                 <Setter Property="HeightRequest"
