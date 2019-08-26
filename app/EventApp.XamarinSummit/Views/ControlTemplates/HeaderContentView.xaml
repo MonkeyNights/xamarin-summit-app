@@ -20,6 +20,7 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 FontSize="18"
+                TextColor="#222222"
                 FontFamily="{StaticResource LatoRegular}"
                 Margin="32, 16, 32, 0" />
             <yummy:PancakeView Grid.Column="1"
