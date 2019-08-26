@@ -7,7 +7,7 @@
     <ContentView.Content>
         <StackLayout>
             <!-- location -->
-            <Label Text="LOCATE US"
+            <Label Text="LOCAL"
                    Style="{StaticResource labelTitleStyle}" />
             <Label Text="O evento vai acontecer no auditório principal da Faculdade CESUSC, localizado
 na Rodovia José Carlos Daux (SC-401), 9301 - Km 10, Santo Antônio de Lisboa - Florianópolis - Santa Catarina"

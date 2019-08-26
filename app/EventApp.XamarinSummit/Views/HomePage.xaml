@@ -30,7 +30,7 @@
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:LocationContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
-                <Label Text="About this version?"
+                <Label Text="Sobre esta versão!"
                        TextColor="#666"
                        Margin="32, 0, 32, 32"
                        Style="{StaticResource labelCommonStyle}" />

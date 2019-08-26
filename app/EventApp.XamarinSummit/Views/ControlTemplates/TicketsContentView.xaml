@@ -7,7 +7,7 @@
         <StackLayout>
             <!-- tickets -->
             <Label
-                Text="TICKETS"
+                Text="INSCRIÇÕES"
                 Style="{StaticResource labelTitleStyle}" />
             <Label
                 Text="Confira os tipos de ingressos disponíveis e escolha a opção mais adequada para você."
@@ -24,7 +24,7 @@
                 VerticalOptions="StartAndExpand"
                 BackgroundColor="Transparent"
                 FontSize="14"
-                Text="REGISTER NOW"
+                Text="INSCREVA-SE"
                 FontFamily="{StaticResource LatoRegular}" />
         </StackLayout>
     </ContentView.Content>

@@ -8,7 +8,7 @@
     <ContentView.Content>
         <StackLayout>
             <!-- speakers -->
-            <Label Text="SPEAKERS"
+            <Label Text="PALESTRANTES"
                    Style="{StaticResource labelTitleStyle}" />
             <Label Text="Palestrantes e influenciadores que são reconhecidos nacionalmente como destaques em suas áreas de atuação."
                    Style="{StaticResource labelCommonStyle}" />
