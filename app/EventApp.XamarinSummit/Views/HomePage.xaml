@@ -4,11 +4,134 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     prism:ViewModelLocator.AutowireViewModel="True"
-    xmlns:Rainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
     x:Class="EventApp.XamarinSummit.Views.HomePage"
-    BackgroundColor="#FBFBFB"
+    xmlns:models="clr-namespace:EventApp.XamarinSummit.Models;assembly=EventApp.XamarinSummit"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#F5F5F5"
+    NavigationPage.HasNavigationBar="False"
     Title="Home">
     <ContentPage.Content>
-      
+        <ScrollView>
+            <StackLayout Spacing="0" Padding="0">
+                 <!-- header -->
+                <Label Text="Welcome to Xamarin Summit 2019" 
+                       TextColor="#000"
+                       Margin="16, 32, 16, 16"
+                           FontFamily="{StaticResource LatoBold}"
+                           HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center" 
+                           LineBreakMode="WordWrap"
+                           FontSize="20" />
+                <yummy:PancakeView WidthRequest="320" Margin="32, 0, 32, 16" CornerRadius="12">
+                    <Image Source="https://xamarinsummit.com.br/cover.jpg"
+                           Aspect="AspectFill"/>
+                </yummy:PancakeView>
+              
+                <Label 
+                    Text="O grande encontro da comunidade brasileira de desenvolvedores Xamarin, permitindo um ambiente totalmente favorável a troca de experiências e networking." 
+                    TextColor="#222"
+                    Margin="32, 0, 32, 16"       
+                    FontFamily="{StaticResource LatoRegular}"
+                           HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center" 
+                           LineBreakMode="WordWrap"
+                           FontSize="14" />
+                <BoxView  Margin="16, 16, 16, 16" Color="#222" HeightRequest="1" Opacity="0.1" />
+                <!-- speakers -->
+                <Label Text="SPEAKERS"
+                       TextColor="#222"
+                       Margin="32, 16, 32, 16"
+                        FontFamily="{StaticResource LatoBold}"
+                        HorizontalTextAlignment="Center" 
+                        HorizontalOptions="Center" 
+                        LineBreakMode="WordWrap"
+                        FontSize="16" />
+                <Label Text="Palestrantes e influenciadores que são reconhecidos nacionalmente como destaques em suas áreas de atuação."
+                           Margin="32, 0, 32, 0"
+                        TextColor="#222"
+                           FontFamily="{StaticResource LatoRegular}"
+                           HorizontalTextAlignment="Center" 
+                           HorizontalOptions="Center" 
+                           LineBreakMode="WordWrap"
+                           FontSize="14" />
+                <CollectionView
+                    ItemSizingStrategy="MeasureAllItems"
+                    Margin="24, 0, 24, 16"
+                    HeightRequest="176">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type models:Speaker}">
+                            <models:Speaker Name="Mahmoud Ali" 
+                                            PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/mud.jpg"/>
+                            <models:Speaker Name="Letticia Nicoli" 
+                                            PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/letticia.jpg"/>
+                            <models:Speaker Name="Lucas Teles" 
+                                            PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/lucas.jpg"/>
+                            <models:Speaker Name="Ione Souza Junior" 
+                                            PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/ione.jpg" />
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemsLayout>
+                        <ListItemsLayout
+                            ItemSpacing="0" 
+                            Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="8, 16, 8, 16" WidthRequest="170">
+                                <yummy:PancakeView 
+                                    BackgroundColor="#FFF"
+                                    CornerRadius="12">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Image Source="{Binding PictureUrl}" Grid.Row="0" Aspect="AspectFill"  />
+                                        <BoxView Grid.Row="0" 
+                                                 Color="#222" 
+                                                 Opacity="0.4" />
+                                        <Label Text="{Binding Name}" Grid.Row="0" 
+                                               TextColor="#FFFFFF" 
+                                               Margin="16"
+                                               VerticalOptions="EndAndExpand"                                               LineBreakMode="WordWrap"
+                                               FontFamily="{StaticResource LatoBold}" 
+                                               FontSize="14" />
+                                    </Grid>
+                                </yummy:PancakeView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <BoxView  Margin="16, 0, 16, 32" Color="#222" HeightRequest="1" Opacity="0.1" />
+                <!-- tickets -->
+                    <Label Margin="16, 0, 16, 8"
+                        Text="TICKETS"
+                           FontFamily="{StaticResource LatoBold}"
+                           TextColor="#222"
+                           HorizontalTextAlignment="Center" 
+                           LineBreakMode="WordWrap"
+                           FontSize="16" />
+                    <Label 
+                        Grid.Row="1"
+                        Margin="32, 0, 32, 16"
+                        Text="Confira os tipos de ingressos disponíveis e escolha a opção mais adequada para você."
+                           FontFamily="{StaticResource LatoRegular}"
+                        TextColor="#222"
+                           HorizontalTextAlignment="Center"  
+                           LineBreakMode="WordWrap"
+                           FontSize="14" />
+                <Button 
+                        HorizontalOptions="Center"
+                        TextColor="#222"
+                        BorderColor="#222"
+                        CornerRadius="8"
+                        BorderWidth="1"
+                        HeightRequest="38"
+                        VerticalOptions="Start" 
+                        BackgroundColor="Transparent"
+                        FontSize="14"
+                        Text="REGISTER NOW" Grid.Row="3" FontFamily="{StaticResource LatoRegular}"   />
+                <BoxView  Margin="16, 32, 16, 32" Color="#222" HeightRequest="1" Opacity="0.1" />
+            </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

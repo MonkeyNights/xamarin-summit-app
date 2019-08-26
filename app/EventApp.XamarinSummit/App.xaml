@@ -7,6 +7,17 @@
                          mc:Ignorable="d"
                          x:Class="EventApp.XamarinSummit.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LatoBold">
+                <On Platform="iOS" Value="Lato-Bold"/>
+                <On Platform="Android" Value="Lato-Bold.ttf#Bold"/>
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="LatoRegular">
+                <On Platform="iOS" Value="Lato-Regular"/>
+                <On Platform="Android" Value="Lato-Regular.ttf#Regular"/>
+            </OnPlatform>
+            
+            
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>
