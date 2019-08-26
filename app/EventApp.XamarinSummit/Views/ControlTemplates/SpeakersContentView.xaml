@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:EventApp.XamarinSummit.Models"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="EventApp.XamarinSummit.Views.ControlTemplates.SpeakersContentView">
+    <ContentView.Content>
+        <StackLayout>
+            <!-- speakers -->
+            <Label Text="SPEAKERS"
+                   Style="{StaticResource labelTitleStyle}" />
+            <Label Text="Palestrantes e influenciadores que são reconhecidos nacionalmente como destaques em suas áreas de atuação."
+                   Style="{StaticResource labelCommonStyle}" />
+            <CollectionView
+                ItemSizingStrategy="MeasureAllItems"
+                Margin="24, 0, 24, 16"
+                HeightRequest="176">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type models:Speaker}">
+                        <models:Speaker Name="Mahmoud Ali"
+                                        PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/mud.jpg" />
+                        <models:Speaker Name="Letticia Nicoli"
+                                        PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/letticia.jpg" />
+                        <models:Speaker Name="Lucas Teles"
+                                        PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/lucas.jpg" />
+                        <models:Speaker Name="Ione Souza Junior"
+                                        PictureUrl="http://xamarinsummit.com.br/assets/img/speakers/ione.jpg" />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemsLayout>
+                    <ListItemsLayout
+                        ItemSpacing="0"
+                        Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="8, 16, 8, 16"
+                              WidthRequest="170">
+                            <yummy:PancakeView
+                                BackgroundColor="#FFF"
+                                CornerRadius="12">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding PictureUrl}"
+                                           Grid.Row="0"
+                                           Aspect="AspectFill" />
+                                    <BoxView Grid.Row="0"
+                                             Color="#222"
+                                             Opacity="0.4" />
+                                    <Label Text="{Binding Name}"
+                                           Grid.Row="0"
+                                           TextColor="#FFFFFF"
+                                           Margin="16"
+                                           VerticalOptions="EndAndExpand"
+                                           LineBreakMode="WordWrap"
+                                           FontFamily="{StaticResource LatoBold}"
+                                           FontSize="14" />
+                                </Grid>
+                            </yummy:PancakeView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -8,16 +8,71 @@
                          x:Class="EventApp.XamarinSummit.App">
     <Application.Resources>
         <ResourceDictionary>
-            <OnPlatform x:TypeArguments="x:String" x:Key="LatoBold">
-                <On Platform="iOS" Value="Lato-Bold"/>
-                <On Platform="Android" Value="Lato-Bold.ttf#Bold"/>
+            <!-- fonts -->
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="LatoBold">
+                <On Platform="iOS"
+                    Value="Lato-Bold" />
+                <On Platform="Android"
+                    Value="Lato-Bold.ttf#Bold" />
             </OnPlatform>
-            <OnPlatform x:TypeArguments="x:String" x:Key="LatoRegular">
-                <On Platform="iOS" Value="Lato-Regular"/>
-                <On Platform="Android" Value="Lato-Regular.ttf#Regular"/>
+            <OnPlatform x:TypeArguments="x:String"
+                        x:Key="LatoRegular">
+                <On Platform="iOS"
+                    Value="Lato-Regular" />
+                <On Platform="Android"
+                    Value="Lato-Regular.ttf#Regular" />
             </OnPlatform>
-            
-            
+            <!-- home page titles -->
+            <Style x:Key="labelTitleStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#222222" />
+                <Setter Property="Margin"
+                        Value="32, 0, 32, 16" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="LineBreakMode"
+                        Value="WordWrap" />
+                <Setter Property="FontSize"
+                        Value="16" />
+                <Setter Property="FontAttributes"
+                        Value="Bold" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource LatoBold}" />
+            </Style>
+            <!-- home common text -->
+            <Style x:Key="labelCommonStyle"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="#000000" />
+                <Setter Property="Margin"
+                        Value="32, 0, 32, 16" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="LineBreakMode"
+                        Value="WordWrap" />
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="FontFamily"
+                        Value="{StaticResource LatoRegular}" />
+            </Style>
+            <!-- line box -->
+            <Style x:Key="lineBoxCommonStyle"
+                   TargetType="BoxView">
+                <Setter Property="Margin"
+                        Value="16" />
+                <Setter Property="Color"
+                        Value="#222" />
+                <Setter Property="HeightRequest"
+                        Value="1" />
+                <Setter Property="Opacity"
+                        Value="0.1" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

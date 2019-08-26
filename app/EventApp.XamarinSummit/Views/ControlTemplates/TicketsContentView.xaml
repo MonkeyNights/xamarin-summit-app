@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="EventApp.XamarinSummit.Views.ControlTemplates.TicketsContentView">
+    <ContentView.Content>
+        <StackLayout>
+            <!-- tickets -->
+            <Label
+                Text="TICKETS"
+                Style="{StaticResource labelTitleStyle}" />
+            <Label
+                Text="Confira os tipos de ingressos disponíveis e escolha a opção mais adequada para você."
+                Style="{StaticResource labelCommonStyle}" />
+            <Button
+                HorizontalOptions="CenterAndExpand"
+                TextColor="#222"
+                BorderColor="#222"
+                CornerRadius="8"
+                BorderWidth="1"
+                HeightRequest="38"
+                WidthRequest="142"
+                VerticalOptions="StartAndExpand"
+                BackgroundColor="Transparent"
+                FontSize="14"
+                Text="REGISTER NOW"
+                Grid.Row="3"
+                FontFamily="{StaticResource LatoRegular}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
