@@ -5,6 +5,23 @@
     xmlns:models="clr-namespace:EventApp.XamarinSummit.Models"
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     x:Class="EventApp.XamarinSummit.Views.ControlTemplates.SpeakersContentView">
+    <ContentView.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="#FFFFFF" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentView.Resources>
     <ContentView.Content>
         <StackLayout>
             <!-- speakers -->
@@ -14,6 +31,8 @@
                    Style="{StaticResource labelCommonStyle}" />
             <CollectionView
                 ItemSizingStrategy="MeasureAllItems"
+                SelectionMode="Single"
+                SelectionChangedCommand="{Binding SpeakerCommand}"
                 Margin="24, 0, 24, 0"
                 HeightRequest="176">
                 <CollectionView.ItemsSource>

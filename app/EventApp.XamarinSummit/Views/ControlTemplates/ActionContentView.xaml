@@ -10,7 +10,7 @@
             <!-- speakers -->
             <Label Text="SOBRE O EVENTO"
                    Style="{StaticResource labelTitleStyle}" />
-            <Label Text="O maior encontro de desenvolvedores #Xamarin da América Latina"
+            <Label Text="O maior encontro de desenvolvedores Xamarin da América Latina"
                    Style="{StaticResource labelCommonStyle}" />
             <CollectionView
                 ItemSizingStrategy="MeasureAllItems"

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -8,14 +10,19 @@ namespace EventApp.XamarinSummit.ViewModels
 {
     public abstract class BaseViewModel : BindableBase, IInitializeAsync
     {
-        private readonly INavigationService navigationService;
+        protected readonly INavigationService navigationService;
 
         private bool isBusy;
 
         protected BaseViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
+
+            BackCommand = new DelegateCommand(async () => await navigationService.GoBackAsync())
+                .ObservesCanExecute(() => IsNotBusy);
         }
+
+        public ICommand BackCommand { get; }
 
         public bool IsBusy
         {

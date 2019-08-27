@@ -12,18 +12,39 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <yummy:PancakeView Grid.Column="0"
+                               IsVisible="false"
+                               Grid.ColumnSpan="3"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start"
+                               Margin="32, 8, 0, 0"
+                               CornerRadius="18"
+                               BackgroundColor="#EBEBEB"
+                               WidthRequest="36"
+                               HeightRequest="36">
+                <Label Text="XS"
+                       FontAttributes="Bold"
+                       TextColor="#FFFFFF"
+                       FontSize="14"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontFamily="{StaticResource LatoBold}" />
+            </yummy:PancakeView>
             <Label
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
                 Text="Xamarin Summit 2019"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 FontSize="18"
                 TextColor="#222222"
                 FontFamily="{StaticResource LatoRegular}"
-                Margin="32, 16, 32, 0" />
-            <yummy:PancakeView Grid.Column="1"
+                Margin="0, 8, 0, 0" />
+            <yummy:PancakeView Grid.Column="2"
+                               Grid.ColumnSpan="3"
                                VerticalOptions="Center"
                                HorizontalOptions="End"
                                Margin="0, 8, 32, 0"
