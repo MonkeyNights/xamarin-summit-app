@@ -19,14 +19,13 @@ namespace EventApp.XamarinSummit.ViewModels
         {
             this.eventService = eventService;
 
-            SpeakerCommand = new DelegateCommand(async () => await ExecuteSpeakerCommand());
+            SpeakerCommand = new DelegateCommand(async () => await ExecuteSpeakerCommand())
+                .ObservesCanExecute(() => IsNotBusy);
         }
 
         public ICommand SpeakerCommand { get; }
 
-        private async Task ExecuteSpeakerCommand()
-        {
-            await navigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(SpeakerPage)}");
-        }
+        private Task ExecuteSpeakerCommand()
+         => navigationService.NavigateAsync($"{nameof(SpeakerPage)}");
     }
 }

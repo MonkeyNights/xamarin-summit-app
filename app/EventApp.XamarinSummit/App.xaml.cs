@@ -39,6 +39,7 @@ namespace EventApp.XamarinSummit
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<SpeakerPage, SpeakerPageViewModel>();
         }
 
         private void RegisterServices(IContainerRegistry containerRegistry)

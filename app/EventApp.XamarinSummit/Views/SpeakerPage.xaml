@@ -2,8 +2,167 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="EventApp.XamarinSummit.Views.SpeakerPage">
+    x:Class="EventApp.XamarinSummit.Views.SpeakerPage"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#FFFFFF"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <yummy:PancakeView Grid.Column="0"
+                                       Grid.ColumnSpan="3"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       Margin="32, 8, 0, 0"
+                                       CornerRadius="18"
+                                       BackgroundColor="#EBEBEB"
+                                       WidthRequest="36"
+                                       HeightRequest="36">
+                        <Label Text="🔙"
+                               FontAttributes="Bold"
+                               TextColor="#FFFFFF"
+                               FontSize="14"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               FontFamily="{StaticResource LatoBold}" />
+                        <yummy:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}" />
+                        </yummy:PancakeView.GestureRecognizers>
+                    </yummy:PancakeView>
+                    <Label
+                        Grid.Column="1"
+                        Grid.ColumnSpan="3"
+                        Text="Palestrante"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSize="18"
+                        TextColor="#222222"
+                        FontFamily="{StaticResource LatoRegular}"
+                        Margin="0, 8, 0, 0" />
+                    <yummy:PancakeView Grid.Column="2"
+                                       Grid.ColumnSpan="3"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="End"
+                                       Margin="0, 8, 32, 0"
+                                       CornerRadius="18"
+                                       BackgroundColor="#EBEBEB"
+                                       WidthRequest="36"
+                                       HeightRequest="36">
+                        <Label Text="XS"
+                               FontAttributes="Bold"
+                               TextColor="#FFFFFF"
+                               FontSize="14"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               FontFamily="{StaticResource LatoBold}" />
+                    </yummy:PancakeView>
+                </Grid>
+                <!-- general info -->
+                <Label Text="Robson Soares Amorim"
+                       Style="{StaticResource labelCommonStyle}"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       Margin="32, 16, 32, 16" />
+                <yummy:PancakeView WidthRequest="420"
+                                   Margin="32, 0, 32, 0"
+                                   CornerRadius="12">
+                    <Image Source="http://xamarinsummit.com.br/assets/img/speakers/robson.jpg"
+                           Aspect="AspectFill" />
+                </yummy:PancakeView>
+                <Label Text="Desenvolvedor na Lambda3. Co-organizador do @High5Devs. Adepto de agilidade no desenvolvimento de software. Gosta de contribuir como a comunidade com posts, podcasts, palestras sempre buscando o empoderamento de pessoas. Formado em sistemas de informação pela UNIP em 2012. Na busca de novos conhecimentos e troca de experiências!"
+                       Style="{StaticResource labelCommonStyle}" />
+                <!-- header -->
+                <!-- talk -->
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <Label Text="PALESTRA"
+                       FontAttributes="None"
+                       Style="{StaticResource labelTitleStyle}" />
+                <Label Text="Reagindo a eventos com Firebase RealTime Database"
+                       FontAttributes="Bold"
+                       FontFamily="{StaticResource LatoBold}"
+                       Style="{StaticResource labelCommonStyle}" />
+                <Label Text="Já precisou entregar comunição em tempo real no seu app ou no sistema? Se sim, sabe que temos algumas opções que entregam este desafio.. nesta palestra vamos ver como podemos o Realtime Database do Firebase funciona e utilizar a Rest API para reagir a eventos em tempo real. Vamos construir dois apps e ve-los se comunicando em tempo real utilizando o Firebase RealTime Database e os dados sendo atualizados em tempo real no console do Firebase."
+                       Style="{StaticResource labelCommonStyle}" />
+                <Button
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0, 16, 0, 0"
+                    TextColor="#222"
+                    BorderColor="#222"
+                    CornerRadius="8"
+                    BorderWidth="1"
+                    HeightRequest="38"
+                    WidthRequest="142"
+                    VerticalOptions="StartAndExpand"
+                    BackgroundColor="Transparent"
+                    FontSize="14"
+                    Text="AVALIAR"
+                    FontFamily="{StaticResource LatoRegular}" />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <!-- social -->
+                <Label Text="SIGA"
+                       FontAttributes="None"
+                       Style="{StaticResource labelTitleStyle}" />
+                <CollectionView
+                    ItemSizingStrategy="MeasureAllItems"
+                    Margin="24, 0, 24, 0"
+                    HeightRequest="120">
+                    <CollectionView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Lambda 3</x:String>
+                            <x:String>Linkedin</x:String>
+                            <x:String>Twitter</x:String>
+                            <x:String>Facebook</x:String>
+                            <x:String>GitHub</x:String>
+                        </x:Array>
+                    </CollectionView.ItemsSource>
+                    <CollectionView.ItemsLayout>
+                        <ListItemsLayout
+                            ItemSpacing="0"
+                            Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="8, 16, 8, 0"
+                                  WidthRequest="120">
+                                <yummy:PancakeView
+                                    BackgroundColor="#e5e5e5"
+                                    CornerRadius="12">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding .}"
+                                               Grid.Row="0"
+                                               TextColor="#000000"
+                                               Margin="16"
+                                               VerticalOptions="EndAndExpand"
+                                               LineBreakMode="WordWrap"
+                                               FontFamily="{StaticResource LatoRegular}"
+                                               FontSize="14" />
+                                    </Grid>
+                                </yummy:PancakeView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!-- report -->
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <Label Text="Reportar quebra de código de conduta!"
+                       TextColor="#666"
+                       Margin="32, 0, 32, 32"
+                       Style="{StaticResource labelCommonStyle}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
