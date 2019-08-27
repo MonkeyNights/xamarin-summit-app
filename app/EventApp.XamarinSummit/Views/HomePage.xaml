@@ -19,7 +19,9 @@
         <ScrollView>
             <StackLayout Spacing="0"
                          Padding="0">
-                <templates:HeaderContentView />
+                <templates:HeaderContentView CanGoBack="False"
+                                             HeaderTitle="Xamarin Summit"
+                                             ProfileInitials="XS" />
                 <templates:AboutEventContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:SpeakersContentView />

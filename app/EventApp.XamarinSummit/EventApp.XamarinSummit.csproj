@@ -19,6 +19,6 @@
     <Folder Include="Factories\" />
     <Folder Include="Queries\" />
     <Folder Include="Services\" />
-    <Folder Include="Views\ControlTemplates\" />
+    <Folder Include="Views\Templates\" />
   </ItemGroup>
 </Project>

@@ -14,8 +14,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <yummy:PancakeView Grid.Column="0"
-                               IsVisible="false"
+            <yummy:PancakeView x:Name="GoBackView"
+                               IsVisible="{Binding GoBack}"
+                               Grid.Column="0"
                                Grid.ColumnSpan="3"
                                VerticalOptions="Center"
                                HorizontalOptions="Start"
@@ -24,7 +25,7 @@
                                BackgroundColor="#EBEBEB"
                                WidthRequest="36"
                                HeightRequest="36">
-                <Label Text="XS"
+                <Label Text="🔙"
                        FontAttributes="Bold"
                        TextColor="#FFFFFF"
                        FontSize="14"
@@ -32,27 +33,30 @@
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
                        FontFamily="{StaticResource LatoBold}" />
+                <yummy:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding BackCommand}" />
+                </yummy:PancakeView.GestureRecognizers>
             </yummy:PancakeView>
-            <Label
-                Grid.Column="1"
-                Grid.ColumnSpan="3"
-                Text="Xamarin Summit 2019"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                FontSize="18"
-                TextColor="#222222"
-                FontFamily="{StaticResource LatoRegular}"
-                Margin="0, 8, 0, 0" />
-            <yummy:PancakeView Grid.Column="2"
-                               Grid.ColumnSpan="3"
-                               VerticalOptions="Center"
-                               HorizontalOptions="End"
-                               Margin="0, 8, 32, 0"
-                               CornerRadius="18"
-                               BackgroundColor="#EBEBEB"
-                               WidthRequest="36"
-                               HeightRequest="36">
-                <Label Text="XS"
+            <Label x:Name="HeaderTitleLabel"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="3"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontSize="18"
+                   TextColor="#222222"
+                   FontFamily="{StaticResource LatoRegular}"
+                   Margin="0, 8, 0, 0" />
+            <yummy:PancakeView  x:Name="ProfileView"
+                                Grid.Column="2"
+                                Grid.ColumnSpan="3"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End"
+                                Margin="0, 8, 32, 0"
+                                CornerRadius="18"
+                                BackgroundColor="#EBEBEB"
+                                WidthRequest="36"
+                                HeightRequest="36">
+                <Label x:Name="ProfileInitialsLabel"
                        FontAttributes="Bold"
                        TextColor="#FFFFFF"
                        FontSize="14"
