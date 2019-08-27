@@ -8,7 +8,7 @@ namespace EventApp.XamarinSummit.ViewModels
 {
     public abstract class BaseViewModel : BindableBase, IInitializeAsync
     {
-        private readonly INavigationService navigationService;
+        protected readonly INavigationService navigationService;
 
         private bool isBusy;
 

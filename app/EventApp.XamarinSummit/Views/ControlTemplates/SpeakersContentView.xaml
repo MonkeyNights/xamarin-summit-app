@@ -14,6 +14,7 @@
                    Style="{StaticResource labelCommonStyle}" />
             <CollectionView
                 ItemSizingStrategy="MeasureAllItems"
+                SelectionChangedCommand=""
                 Margin="24, 0, 24, 0"
                 HeightRequest="176">
                 <CollectionView.ItemsSource>
