@@ -4,83 +4,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     prism:ViewModelLocator.AutowireViewModel="True"
-    xmlns:Rainbows="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows"
     x:Class="EventApp.XamarinSummit.Views.HomePage"
-    BackgroundColor="#FBFBFB"
-    Title="Home">
+    xmlns:templates="clr-namespace:EventApp.XamarinSummit.Views.ControlTemplates"
+    BackgroundColor="#FFF"
+    NavigationPage.HasNavigationBar="False"
+    Title="Feed">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS"
+                Value="0, 16, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <ScrollView>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3.5*" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="1*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-                <!-- hero image -->
-                <Frame Grid.Row="0"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="6"
-                       CornerRadius="8"
-                       Padding="16"
-                       HasShadow="False"
-                       BackgroundColor="#FFF"
-                       Margin="16">
-                    <Image
-                        BackgroundColor="Red" />
-                </Frame>
-                <!-- hero image -->
-                <Label Grid.Row="1"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="6"
-                       Margin="16,0"
-                       BackgroundColor="green"
-                       VerticalOptions="End"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       FontSize="22"
-                       FontAttributes="Bold"
-                       Text="Welcome to Xamarin Summit 2019"></Label>
-                <Label Grid.Row="2"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="6"
-                       Margin="16,0"
-                       BackgroundColor="yellow"
-                       VerticalOptions="Center"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       FontSize="14"
-                       FontAttributes="Bold"
-                       Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. I" />
-                <!-- actions -->
-                <Frame
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Margin="8">
-                </Frame>
-                <Frame
-                    Grid.Row="3"
-                    Grid.Column="3"
-                    Margin="8">
-                </Frame>
-                <Frame
-                    Grid.Row="3"
-                    Grid.Column="5"
-                    Margin="8">
-                </Frame>
-                <!-- actions -->
-            </Grid>
+            <StackLayout Spacing="0"
+                         Padding="0">
+                <templates:HeaderContentView />
+                <templates:AboutEventContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:SpeakersContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:ActionContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:TicketsContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <templates:LocationContentView />
+                <BoxView Style="{StaticResource lineBoxCommonStyle}" />
+                <Label Text="Sobre esta versão!"
+                       TextColor="#666"
+                       Margin="32, 0, 32, 32"
+                       Style="{StaticResource labelCommonStyle}" />
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

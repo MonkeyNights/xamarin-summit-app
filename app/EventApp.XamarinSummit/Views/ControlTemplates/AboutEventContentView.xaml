@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    x:Class="EventApp.XamarinSummit.Views.ControlTemplates.AboutEventContentView">
+    <ContentView.Content>
+        <StackLayout>
+            <!-- header -->
+            <Label Text="Floripa 04 e 05 de Outubro"
+                   Style="{StaticResource labelCommonStyle}"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   Margin="32, 16, 32, 16" />
+            <yummy:PancakeView WidthRequest="320"
+                               Margin="32, 0, 32, 0"
+                               CornerRadius="12">
+                <Image Source="https://xamarinsummit.com.br/assets/img/floripa_br.jpg"
+                       Aspect="AspectFill" />
+            </yummy:PancakeView>
+            <Label
+                Text="O grande encontro da comunidade brasileira de desenvolvedores Xamarin, permitindo um ambiente totalmente favorável a troca de experiências e networking."
+                Style="{StaticResource labelCommonStyle}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
