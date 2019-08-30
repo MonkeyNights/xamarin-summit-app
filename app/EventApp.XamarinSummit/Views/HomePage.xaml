@@ -7,8 +7,15 @@
     x:Class="EventApp.XamarinSummit.Views.HomePage"
     xmlns:templates="clr-namespace:EventApp.XamarinSummit.Views.ControlTemplates"
     BackgroundColor="#FFF"
-    NavigationPage.HasNavigationBar="False"
-    Title="Feed">
+    Title="Xamarin Summit 2019">
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="18"
+               TextColor="#000000"
+               FontFamily="{StaticResource LatoBold}" />
+    </NavigationPage.TitleView>
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS"
@@ -19,9 +26,6 @@
         <ScrollView>
             <StackLayout Spacing="0"
                          Padding="0">
-                <templates:HeaderContentView CanGoBack="False"
-                                             HeaderTitle="Xamarin Summit"
-                                             ProfileInitials="XS" />
                 <templates:AboutEventContentView />
                 <BoxView Style="{StaticResource lineBoxCommonStyle}" />
                 <templates:SpeakersContentView />

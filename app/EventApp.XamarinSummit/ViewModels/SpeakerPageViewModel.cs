@@ -8,6 +8,7 @@ namespace EventApp.XamarinSummit.ViewModels
     {
         public SpeakerPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            Title = "Palestrante";
         }
     }
 }

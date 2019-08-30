@@ -30,10 +30,10 @@
             <Label Text="Palestrantes e influenciadores que são reconhecidos nacionalmente como destaques em suas áreas de atuação."
                    Style="{StaticResource labelCommonStyle}" />
             <CollectionView
-                ItemSizingStrategy="MeasureAllItems"
                 SelectionMode="Single"
+                SelectedItem="{Binding SelectedSpeaker}"
                 SelectionChangedCommand="{Binding SpeakerCommand}"
-                Margin="24, 0, 24, 0"
+                Margin="24, 16, 24, 0"
                 HeightRequest="176">
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type models:Speaker}">
@@ -49,13 +49,13 @@
                 </CollectionView.ItemsSource>
                 <CollectionView.ItemsLayout>
                     <ListItemsLayout
-                        ItemSpacing="0"
+                        ItemSpacing="16"
                         Orientation="Horizontal" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="8, 16, 8, 0"
-                              WidthRequest="170">
+                        <Grid Padding="0"
+                              WidthRequest="176">
                             <yummy:PancakeView
                                 BackgroundColor="#FFF"
                                 CornerRadius="12">

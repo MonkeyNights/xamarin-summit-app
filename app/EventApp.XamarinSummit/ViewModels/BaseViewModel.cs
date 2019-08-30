@@ -13,6 +13,7 @@ namespace EventApp.XamarinSummit.ViewModels
         protected readonly INavigationService navigationService;
 
         private bool isBusy;
+        private string title;
 
         protected BaseViewModel(INavigationService navigationService)
         {
@@ -23,6 +24,12 @@ namespace EventApp.XamarinSummit.ViewModels
         }
 
         public ICommand BackCommand { get; }
+
+        public string Title
+        {
+            get => title;
+            set => SetProperty(ref title, value);
+        }
 
         public bool IsBusy
         {

@@ -8,6 +8,11 @@
                          x:Class="EventApp.XamarinSummit.App">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- navigation page -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="#FFFFFF" />
+            </Style>
             <!-- fonts -->
             <OnPlatform x:TypeArguments="x:String"
                         x:Key="LatoBold">

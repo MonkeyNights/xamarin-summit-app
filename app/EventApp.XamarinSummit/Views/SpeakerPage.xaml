@@ -6,13 +6,18 @@
     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:templates="clr-namespace:EventApp.XamarinSummit.Views.ControlTemplates"
     BackgroundColor="#FFFFFF"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Title}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               FontSize="18"
+               TextColor="#000000"
+               FontFamily="{StaticResource LatoBold}" />
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <templates:HeaderContentView CanGoBack="True"
-                                             HeaderTitle="Palestrante"
-                                             ProfileInitials="XS" />
                 <!-- general info -->
                 <Label Text="Robson Soares Amorim"
                        Style="{StaticResource labelCommonStyle}"
